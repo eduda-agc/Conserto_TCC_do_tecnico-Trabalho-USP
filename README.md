@@ -30,6 +30,7 @@ O projeto consiste consertar um projeto de tcc que se resumia em um tradutor de 
 + **Minis Solenoides - Pontos da Cela Braille:** As mini válvulas solenóides são dispositivos que convertem energia elétrica em movimento mecânico. No circuito de tradução de letras do alfabeto em braille, elas são acionadas para imprimir os padrões táteis correspondentes aos pontos do braille. Essas válvulas são essenciais para permitir que pessoas com deficiência visual possam ler e compreender informações de forma tátil.
 
 ## Link simulador no Tinkercad:
+[Tinkercad](https://www.tinkercad.com/things/gKwb3nNOs2G)
 
 ## Projeto do Esquemático
 ### Teclado Matricial
