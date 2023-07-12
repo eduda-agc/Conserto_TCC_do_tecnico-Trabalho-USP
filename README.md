@@ -24,25 +24,27 @@ O projeto consiste consertar um projeto de tcc que se resumia em um tradutor de 
 
 
 ## Funcionalidades
-+ **Teclado:** 
++ **Teclado:** O teclado matricial é um dispositivo composto por uma matriz de botões que representa as letras do alfabeto inglês e um botão de função adicional. Ao pressionar um botão, o circuito identifica a posição e envia um sinal para acionar as mini válvulas solenóides correspondentes, que imprimem os pontos do braille. O botão de função permite escolher entre dois modos: um que aciona cada mini válvula solenóide individualmente e outro que imprime a imagem em braille completa de cada letra.
+  
++ **Reles de Arduino:** Os relés são dispositivos eletromecânicos que atuam como interruptores controlados por corrente elétrica. No circuito de tradução de letras em braille, eles são essenciais para controlar as mini válvulas solenóides. Cada relé é associado a uma válvula solenóide e, quando energizado, aciona os contatos para permitir a passagem de corrente elétrica e acionar a válvula correspondente. Os relés desempenham um papel crucial ao isolar e proteger o controle de corrente de alta potência, proveniente das mini válvulas solenóides, garantindo um controle individualizado e preciso da impressão dos pontos do braille para a tradução das letras do alfabeto.
 
-+ **Reles de Arduino:**
-
-+ **Arduino MEGA:** 
++ **Arduino MEGA:** O Arduino Mega 2560 é semelhante ao Arduino Uno, mas oferece maior capacidade de memória, tornando-o adequado para projetos maiores. Além disso, possui um maior número de pinos de entrada e saída, o que foi o fator decisivo para sua utilização. Suas especificações incluem um microcontrolador ATmega2560, operação a 5V, faixa de tensão de entrada de 7V a 12V, 16 portas analógicas e 54 portas digitais (sendo 15 delas utilizáveis como PWM - Modulação por Largura de Pulso).
 
 + **Minis Solenoides - Pontos da Cela Braille:** As mini válvulas solenóides são dispositivos que convertem energia elétrica em movimento mecânico. No circuito de tradução de letras do alfabeto em braille, elas são acionadas para imprimir os padrões táteis correspondentes aos pontos do braille. Essas válvulas são essenciais para permitir que pessoas com deficiência visual possam ler e compreender informações de forma tátil.
-
-+ **Fontes:** 
-
-+ **Funções:**
 
 ## Link simulador no Tinkercad:
 
 ## Projeto do Esquemático
-(imagem)
+### Teclado Matricial
+![Teclado Matricial](https://github.com/eduda-agc/Conserto_TCC_do_tecnico-Trabalho-USP/assets/137100218/3a496ae8-588a-46dd-bd60-ac4e09e8f64d)
+
+### Cadeia dos Módulos dos Relés 
+![Cadeia dos Módulos dos Relés](https://github.com/eduda-agc/Conserto_TCC_do_tecnico-Trabalho-USP/assets/137100218/f11e57e2-819f-4c41-ac34-192d7d2e80b1)
+#### Rede de conexão de alimentação dos relés
+![Rede de conexão de alimentação dos relés](https://github.com/eduda-agc/Conserto_TCC_do_tecnico-Trabalho-USP/assets/137100218/439a8b52-f437-4f9e-919c-84c75462002b)
 
 ## Foto do projeto físico
-(imagem pega do vídeo)
+![Imagem do Circuito físico](https://github.com/eduda-agc/Conserto_TCC_do_tecnico-Trabalho-USP/assets/137100218/15c35b6a-c6cc-4ae4-baa7-2a46eef8af20)
 
 ## Vídeo explicativo
 (vídeo)
