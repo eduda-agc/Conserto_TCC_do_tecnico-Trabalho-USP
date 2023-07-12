@@ -20,9 +20,6 @@ O projeto consiste consertar um projeto de tcc que se resumia em um tradutor de 
 | 1    | Caixa de acrílico          | R$ 85,00      | R$ 85,00    |
 | -    | Valor total:               | -             | R$ 534,87   |
 
-## Imagem do circuito
-
-
 ## Funcionalidades
 + **Teclado:** O teclado matricial é um dispositivo composto por uma matriz de botões que representa as letras do alfabeto inglês e um botão de função adicional. Ao pressionar um botão, o circuito identifica a posição e envia um sinal para acionar as mini válvulas solenóides correspondentes, que imprimem os pontos do braille. O botão de função permite escolher entre dois modos: um que aciona cada mini válvula solenóide individualmente e outro que imprime a imagem em braille completa de cada letra.
   
@@ -46,8 +43,9 @@ O projeto consiste consertar um projeto de tcc que se resumia em um tradutor de 
 ## Foto do projeto físico
 ![Imagem do Circuito físico](https://github.com/eduda-agc/Conserto_TCC_do_tecnico-Trabalho-USP/assets/137100218/15c35b6a-c6cc-4ae4-baa7-2a46eef8af20)
 
-## Código completo
-´´´
+## Código do projeto
+### Declaração dos pinos a serem ultilizados
+```C++
 const int botao = 40; 
 const int LedVerde = 24;
 const int LedLaranja = 25;
@@ -55,19 +53,24 @@ int pinosPontos[] = {31,32,33,34,35,36};
 int pinosLinhas[]  = {5,3,2,11,12,13};
 int pinosColunas[] = {6,7,8,9,10};
 int contador;
-
-void setup(){
+```
+### Designação de entradas e saídas
+```C++
+void setup(){ 
   for (int nC = 0; nC <= 4  ; nC++){ //define todos os pinos correspondentes às colunas do teclado matricial em saídas ligadas
      pinMode(pinosColunas[nC], OUTPUT);
      digitalWrite(pinosLinhas[nC], HIGH);
   }
   for (int nL = 0; nL <= 5; nL++){
      pinMode(pinosLinhas[nL], INPUT_PULLUP); //define todos os pinos correspondentes às linhas do teclado matricial em entrada
-  }  
+  } 
   pinMode(botao, INPUT_PULLUP);
   pinMode(LedVerde, OUTPUT);
-  pinMode(LedLaranja, OUTPUT);
+  pinMode(LedLaranja, OUTPUT); 
 }
+```
+### Lógica principal de execução
+```C++
 void loop(){
   for (int nP = 0; nP <= 5; nP++){ //define todos os pontos ligados às válvulas como saídas ligadas
      pinMode(pinosPontos[nP], OUTPUT);
@@ -79,13 +82,14 @@ void loop(){
   else{
     TecladoCela();
   }
-  if (!digitalRead(botao)){  //toda vez que o botão é pressionado, altera-se a função dada para o teclado 
+  if (!digitalRead(botao)){//toda vez que o botão é pressionado, altera-se a função dada para o teclado 
     contador = !contador;
-    if (contador){ //LED verde ligado, é sinal que a função TecladoAlfabeto está ativa 
+    
+    if (contador){ //LED verde ligado, é sinal que a função TecladoAlfabeto está ativa
       digitalWrite(LedVerde, HIGH);
       digitalWrite(LedLaranja, LOW);
     }
-    else{ // co contrário, LED laranja ligado, é sinal que a função TecladoCela está ativa
+    else{ // do contrário, LED laranja ligado, é sinal que a função TecladoCela está ativa
       digitalWrite(LedLaranja, HIGH);
       digitalWrite(LedVerde, LOW);
     }
@@ -94,7 +98,10 @@ void loop(){
   } 
  delay(100); 
 }
-
+```
+### Um pouco de cada função 
+#### TecladoAlfabeto();
+```C++
 void TecladoAlfabeto(){
     for (int nP = 0; nP <= 5; nP++){
      pinMode(pinosPontos[nP], OUTPUT);
@@ -106,7 +113,8 @@ void TecladoAlfabeto(){
       digitalWrite(pinosColunas[nC], LOW);
       
       //faz varredura em todas as colunas verificando se tem algum botao apertado
-      for (int nL = 0; nL <= 5; nL++){
+      for (int nL = 0; nL <= 5; nL++) 
+      {
         if (digitalRead(pinosLinhas[nL]) == LOW){
             if (pinosLinhas[nL] == 5 && pinosColunas[nC] == 6){ //letra A
             digitalWrite(31,LOW); //aciona o ponto 1
@@ -117,168 +125,20 @@ void TecladoAlfabeto(){
             digitalWrite(32,LOW); //aciona o ponto 2
             delay(2000);
             }                  
-            if (pinosLinhas[nL] == 5 && pinosColunas[nC] == 8){  //letra C 
+            if (pinosLinhas[nL] == 5 && pinosColunas[nC] == 8){//letra C 
             digitalWrite(31,LOW); //aciona o ponto 1
             digitalWrite(34,LOW); //aciona o ponto 4
             delay(2000);
-            }          
-            if (pinosLinhas[nL] == 5 && pinosColunas[nC] == 9){ //letra D
-            digitalWrite(31,LOW);
-            digitalWrite(34,LOW);
-            digitalWrite(35,LOW);
-            delay(2000);
             }
-            if (pinosLinhas[nL] == 5 && pinosColunas[nC] == 10){ //letra E
-            digitalWrite(31,LOW);
-            digitalWrite(35,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 3 && pinosColunas[nC] == 6){ //letra F
-            digitalWrite(31,LOW);
-            digitalWrite(32,LOW);
-            digitalWrite(34,LOW);  
-            delay(2000);
-            }                  
-            if (pinosLinhas[nL] == 3 && pinosColunas[nC] == 7){ //letra G
-            digitalWrite(31,LOW);
-            digitalWrite(32,LOW);
-            digitalWrite(34,LOW);
-            digitalWrite(35,LOW);
-            delay(2000);
-            }          
-            if (pinosLinhas[nL] == 3 && pinosColunas[nC] == 8){ //letra H 
-            digitalWrite(31,LOW);
-            digitalWrite(32,LOW);
-            digitalWrite(35,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 3 && pinosColunas[nC] == 9){ //letra I
-            digitalWrite(32,LOW);
-            digitalWrite(34,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 3 && pinosColunas[nC] == 10){ //letra J
-            digitalWrite(32,LOW);
-            digitalWrite(34,LOW);
-            digitalWrite(35,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 2 && pinosColunas[nC] == 6){ //letra K
-            digitalWrite(31,LOW);
-            digitalWrite(33,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 2 && pinosColunas[nC] == 7){ //letra L
-            digitalWrite(31,LOW);
-            digitalWrite(32,LOW);
-            digitalWrite(33,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 2 && pinosColunas[nC] == 8){ //letra  M
-            digitalWrite(31,LOW);
-            digitalWrite(33,LOW);
-            digitalWrite(34,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 2 && pinosColunas[nC] == 9){ //letra N
-            digitalWrite(31,LOW);
-            digitalWrite(33,LOW);
-            digitalWrite(34,LOW);
-            digitalWrite(35,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 2 && pinosColunas[nC] == 10){ //letra O 
-            digitalWrite(31,LOW);
-            digitalWrite(33,LOW);
-            digitalWrite(35,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 11 && pinosColunas[nC] == 6){ //letra P
-            digitalWrite(31,LOW);
-            digitalWrite(32,LOW);
-            digitalWrite(33,LOW);
-            digitalWrite(34,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 11 && pinosColunas[nC] == 7){ //letra Q
-            digitalWrite(31,LOW);
-            digitalWrite(32,LOW);
-            digitalWrite(33,LOW);
-            digitalWrite(34,LOW);
-            digitalWrite(35,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 11 && pinosColunas[nC] == 8){  //letra R
-            digitalWrite(31,LOW);
-            digitalWrite(32,LOW);
-            digitalWrite(33,LOW);
-            digitalWrite(35,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 11 && pinosColunas[nC] == 9){ //letra S
-            digitalWrite(32,LOW);
-            digitalWrite(33,LOW);
-            digitalWrite(34,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 11 && pinosColunas[nC] == 10){ //letra T 
-            digitalWrite(32,LOW);
-            digitalWrite(33,LOW);
-            digitalWrite(34,LOW);
-            digitalWrite(35,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 12 && pinosColunas[nC] == 6){ //letra U
-            digitalWrite(31,LOW);
-            digitalWrite(33,LOW);
-            digitalWrite(36,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 12 && pinosColunas[nC] == 7){ //letra V
-            digitalWrite(31,LOW);
-            digitalWrite(32,LOW);
-            digitalWrite(33,LOW);
-            digitalWrite(36,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 12 && pinosColunas[nC] == 8){ //letra W
-            digitalWrite(32,LOW);
-            digitalWrite(34,LOW);
-            digitalWrite(35,LOW);
-            digitalWrite(36,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 12 && pinosColunas[nC] == 9){ //letra X
-            digitalWrite(31,LOW);
-            digitalWrite(33,LOW);
-            digitalWrite(34,LOW);
-            digitalWrite(36,LOW);
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 12 && pinosColunas[nC] == 10){ //letra Y
-            digitalWrite(31,LOW);
-            digitalWrite(33,LOW);
-            digitalWrite(34,LOW);
-            digitalWrite(35,LOW);
-            digitalWrite(36,LOW);
-            delay(2000);
-            }          
-            if (pinosLinhas[nL] == 13 && pinosColunas[nC] == 8){ //letra Z
-            digitalWrite(31,LOW);
-            digitalWrite(33,LOW);
-            digitalWrite(35,LOW);
-            digitalWrite(36,LOW);
-            delay(2000);
-            }
-        }
-      }
-      digitalWrite(pinosColunas[nC], HIGH);
-    }
-}
+            (...)        
+```
 
+#### TecladoCela();
+```C++
 void TecladoCela(){
   for (int nC = 0; nC <= 4; nC++){
       digitalWrite(pinosColunas[nC], LOW);
+      
       for (int nL = 0; nL <= 5; nL++){
         if (digitalRead(pinosLinhas[nL]) == LOW){
             if (pinosLinhas[nL] == 5 && pinosColunas[nC] == 6){ //ponto 1 (A)
@@ -292,25 +152,9 @@ void TecladoCela(){
             if (pinosLinhas[nL] == 3 && pinosColunas[nC] == 6){  //ponto 2 (F)
             digitalWrite(32,LOW);
             delay(2000);
-            }          
-            if (pinosLinhas[nL] == 3 && pinosColunas[nC] == 7){ //ponto 5 (G)
-            digitalWrite(35,LOW);
-            delay(2000);
             }
-            if (pinosLinhas[nL] == 2 && pinosColunas[nC] == 6){ //ponto 3 (K)
-            digitalWrite(33,LOW); 
-            delay(2000);
-            }
-            if (pinosLinhas[nL] == 2 && pinosColunas[nC] == 7){ //ponto 6 (L)
-            digitalWrite(36, LOW);
-            delay(2000);
-            }
-          }
-        }
-        digitalWrite(pinosColunas[nC], HIGH);
-    }
-}
-´´´
+            (...)         
+```
 
 ## Teorias
 ### Cegueira, importância do braile e a *desbrailização*
