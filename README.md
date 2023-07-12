@@ -2,7 +2,7 @@
 #### Disciplina de Eletrônica_2023
 
 ## Resumo do Projeto
-O projeto consiste em um tradutor de braile. O usuário digitará uma letra do alfabeto e sua imagem correspondente será impressa em braile por mini válvulas solenóides. Para se iniciar a manipulação do aparelho, necessário que seja precionado o botãoa "função" para que a máquina se inicie. Dado a isso, o led azul inicia a função de mapeamento - função que aciona cada ponto da cela Braille de cada vez, de acordo com o que é pressionado no teclado -, se o botão "função" é clicada novamente, o led verde é acionado, liberando a função "Alfabeto Braile", sua função principal. <Conclusão do resumo do projeto>
+O projeto consiste consertar um projeto de tcc que se resumia em um tradutor de Braille que permite aos usuários digitar uma letra do alfabeto e imprimir sua respectiva imagem em Braille usando mini válvulas solenoides. Para iniciar a manipulação do dispositivo, é necessário pressionar o botão "função" para que a máquina seja ativada. Uma vez iniciado, o LED azul inicia a função de mapeamento, que ativa cada ponto da célula Braille individualmente, de acordo com a entrada do teclado. Se o botão "função" for pressionado novamente, o LED verde é ativado, liberando a função principal do tradutor, o "Alfabeto Braille". Esse projeto busca fornecer uma solução prática e eficiente para a tradução de letras em Braille, permitindo uma melhor comunicação e acessibilidade para pessoas com deficiência visual.
 
 ## Tabela de Preços da produção na época - 2021
 | Qtd. | Componentes                | Preço Unidade | Valor Total |
@@ -22,6 +22,7 @@ O projeto consiste em um tradutor de braile. O usuário digitará uma letra do a
 
 ## Imagem do circuito
 
+
 ## Funcionalidades
 + **Teclado:** 
 
@@ -29,9 +30,9 @@ O projeto consiste em um tradutor de braile. O usuário digitará uma letra do a
 
 + **Arduino MEGA:** 
 
-+ **Minis Solenoides - Pontos da Cela Braille:**
++ **Minis Solenoides - Pontos da Cela Braille:** As mini válvulas solenóides são dispositivos que convertem energia elétrica em movimento mecânico. No circuito de tradução de letras do alfabeto em braille, elas são acionadas para imprimir os padrões táteis correspondentes aos pontos do braille. Essas válvulas são essenciais para permitir que pessoas com deficiência visual possam ler e compreender informações de forma tátil.
 
-+ **Fontes:**
++ **Fontes:** 
 
 + **Funções:**
 
