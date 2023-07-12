@@ -2,7 +2,7 @@
 #### Disciplina de Eletrônica_2023
 
 ## Resumo do Projeto
-
+O projeto consiste em um tradutor de braile. O usuário digitará uma letra do alfabeto e sua imagem correspondente será impressa em braile por mini válvulas solenóides. Para se iniciar a manipulação do aparelho, necessário que seja precionado o botãoa "função" para que a máquina se inicie. Dado a isso, o led azul inicia a função de mapeamento - função que aciona cada ponto da cela Braille de cada vez, de acordo com o que é pressionado no teclado -, se o botão "função" é clicada novamente, o led verde é acionado, liberando a função "Alfabeto Braile", sua função principal. <Conclusão do resumo do projeto>
 
 ## Tabela de Preços da produção na época - 2021
 | Qtd. | Componentes                | Preço Unidade | Valor Total |
@@ -25,7 +25,7 @@
 ## Funcionalidades
 + **Teclado:** 
 
-+ **Reles do Arduino:**
++ **Reles de Arduino:**
 
 + **Arduino MEGA:** 
 
@@ -37,7 +37,7 @@
 
 ## Link simulador no Tinkercad:
 
-## Projeto do Esquemático e do PCB no EAGLE
+## Projeto do Esquemático
 (imagem)
 
 ## Foto do projeto físico
