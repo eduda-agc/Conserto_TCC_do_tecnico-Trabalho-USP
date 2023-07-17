@@ -172,9 +172,6 @@ A leitura em braille permite um contato direto com a cultura e o conhecimento, a
 #### *Desbrailização*
 De acordo com um artigo de Verônica Soares na revista Minas Faz Ciência, o fenômeno da "desbrailização" está ocorrendo atualmente, resultando na subutilização do Sistema Braille devido aos recursos tecnológicos em áudio. Isso é causado por diversos fatores, como a falta de preparo dos professores, o tempo e os custos envolvidos na produção do Braille, levando à substituição desse sistema por recursos de áudio e até mesmo leitores humanos. Isso tem impactos negativos no processo educacional dos alunos com deficiência visual, pois eles perdem o contato com a palavra escrita, prejudicando, por exemplo, a alfabetização em matemática. A falta de motivação das crianças para aprender Braille está relacionada à facilidade de acesso à informação proporcionada pela tecnologia, resultando em altas taxas de crianças com deficiência visual crescendo sem alfabetização. Estudos mostram que apenas através do Braille o cérebro dos deficientes visuais absorve efetivamente as letras, pontuação e estrutura dos textos.
 
-## Vídeo explicativo
-(vídeo)
-
 ## Finalização
 O projeto foi feito em 2023 no primeiro semestre do curso de BCC, da disciplina de Eletrônica,
 na USP de São Carlos, lecionada pelo professor Eduardo do Valle Simoes. 
